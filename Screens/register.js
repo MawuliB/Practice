@@ -4,7 +4,8 @@ import { SafeAreaView } from 'react-native-safe-area-context'
 
 export default function register() {
     return (
-            <SafeAreaView style={styles.box}>
+        <SafeAreaView style={styles.home}>
+            <View style={styles.box}>
         <TextInput
           style={styles.inputText}
           placeholder="Enter your username"
@@ -17,6 +18,7 @@ export default function register() {
         <TouchableOpacity style={styles.loginBtn}>
                     <Text style={styles.loginText}>SIGNUP</Text>
         </TouchableOpacity>
+      </View>
       </SafeAreaView>
     )
 }

@@ -1,5 +1,5 @@
 import React from "react";
-import { View, Text, Image, TextInput, TouchableOpacity } from "react-native";
+import { View, Text, Image, TextInput, StyleSheet, TouchableOpacity } from "react-native";
 import { AntDesign } from "@expo/vector-icons";
 import { SafeAreaView } from "react-native-safe-area-context";
 
@@ -7,22 +7,10 @@ export default function loginScreen(params) {
   const navigation = params.navigation;
   return (
     <SafeAreaView
-      style={{
-        backgroundColor: "white",
-        flex: 1,
-        paddingHorizontal: 20,
-        justifyContent: "center",
-        alignItems: "center",
-      }}
+      style={styles.body}
     >
       <Image
-        style={{
-          transform: [{ rotate: "45deg" }],
-          borderRadius: 20,
-          marginBottom: 60,
-          width: 200,
-          height: 200,
-        }}
+        style={styles.image}
         source={{
           uri: "https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/allbikes-1539286251.jpg?crop=0.880xw:1.00xh;0.0561xw,0&resize=1600:*",
         }}
@@ -35,17 +23,12 @@ export default function loginScreen(params) {
         onPress={() => {
           navigation.navigate("home");
         }}
-        style={{
-          padding: 15,
-          paddingHorizontal: 80,
-          marginTop: 10,
-          alignItems: "center",
-          borderRadius: 10,
-          flexDirection: "row",
-          backgroundColor: "whitesmoke",
-        }}
+        style={styles.login}
       >
-        <AntDesign name="google" size={24} />
+        <Image
+        source={{uri: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Google_%22G%22_Logo.svg/1200px-Google_%22G%22_Logo.svg.png"}}
+        style={{width: 24, height: 24}}
+        />
         <Text style={{ paddingLeft: 10, color: "red" }}>Login with Gmail</Text>
       </TouchableOpacity>
 
@@ -53,15 +36,7 @@ export default function loginScreen(params) {
         onPress={() => {
           navigation.navigate("home");
         }}
-        style={{
-          padding: 15,
-          paddingHorizontal: 80,
-          marginTop: 10,
-          alignItems: "center",
-          borderRadius: 10,
-          flexDirection: "row",
-          backgroundColor: "black",
-        }}
+        style={styles.login1}
       >
         <AntDesign name="apple1" size={24} color="white" />
         <Text style={{ paddingLeft: 10, color: "white" }}>Login with Apple</Text>
@@ -74,3 +49,41 @@ export default function loginScreen(params) {
     </SafeAreaView>
   );
 }
+
+const styles = StyleSheet.create({
+  body: {
+    backgroundColor: "white",
+    flex: 1,
+    paddingHorizontal: 20,
+    justifyContent: "center",
+    alignItems: "center",
+  },
+  image: {
+    transform: [{ rotate: "45deg" }],
+    borderRadius: 20,
+    marginBottom: 60,
+    width: 200,
+    height: 200,
+  },
+  login: {
+    padding: 15,
+    paddingHorizontal: 80,
+    marginTop: 10,
+    alignItems: "center",
+    borderRadius: 10,
+    flexDirection: "row",
+    backgroundColor: "whitesmoke",
+    
+  },
+  login1: {
+    padding: 15,
+    paddingHorizontal: 80,
+    marginTop: 10,
+    alignItems: "center",
+    borderRadius: 10,
+    flexDirection: "row",
+    backgroundColor: "black",
+    
+  }
+
+})
